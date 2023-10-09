@@ -1,0 +1,26 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: hello-camptocamp
+  annotations:
+    argocd/app-name: hello-camptocamp
+    grafana/dashboard-selector: hello-camptocamp
+    prometheus.io/alert: 'hello-camptocamp-ServiceDown'
+    github.com/project-slug: 'modridi/hello-camptocamp'
+  links:
+    - url: http://hello-camptocamp.apps.kind-cluster.172-20-0-100.nip.io
+      title: Home page
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/guests
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: hello-camptocamp
+spec:
+  type: s3-bucket
+  owner: group:default/guests
+  dependencyOf:
+  - component:default/hello-camptocamp

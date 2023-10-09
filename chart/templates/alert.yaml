@@ -1,0 +1,10 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: hello-camptocamp-alerts
+spec:
+  groups:
+  - name: hello-camptocamp-alerts
+    rules:
+    - alert: hello-camptocamp-ServiceDown
+      expr: probe_success{target="hello-camptocamp-health"} != 1

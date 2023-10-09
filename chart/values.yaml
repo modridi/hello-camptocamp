@@ -1,0 +1,13 @@
+prometheus-blackbox-exporter:
+  serviceMonitor:
+    enabled: true
+    targets:
+      - name: hello-camptocamp-health
+        url: http://hello-camptocamp
+        interval: 30s
+        module: http_2xx
+
+image:
+  name: ghcr.io/modridi/hello-camptocamp
+  tag: latest
+  host: place_holder
