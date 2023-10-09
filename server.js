@@ -22,4 +22,6 @@ minioClient.fPutObject(process.env.BUCKET_NAME, 'hello-object', file, function (
   console.log('File uploaded successfully.')
 });
 
+Add a bug here
+
 server.listen(port);
